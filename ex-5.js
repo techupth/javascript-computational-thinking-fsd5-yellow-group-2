@@ -82,3 +82,20 @@ let orders = [
 ];
 
 // Start coding here
+
+let highestTotalPrice = 0;
+let orderIdWithHighestTotalPrice;
+
+for (let i = 0; i < orders.length; i++) {
+  const order = orders[i];
+  const totalPrice = order.productPrice * order.productQuantity;
+
+  if (totalPrice > highestTotalPrice) {
+    highestTotalPrice = totalPrice;
+    orderIdWithHighestTotalPrice = order.id;
+  }
+}
+
+console.log(
+  `The order with the highest total price is order ID ${orderIdWithHighestTotalPrice} with a total price of ${highestTotalPrice}.`
+);
