@@ -83,16 +83,19 @@ let orders = [
 
 // Start coding here
 
-let theMostExpensiveOrderIdNumber = 0;
-let theMostExpensiveTotalPrice = 0;
+let highestTotalPrice = 0;
+let orderIdWithHighestTotalPrice;
 
 for (let i = 0; i < orders.length; i++) {
-  if (
-    orders[i].productPrice * productQuantity >
-    theMostExpensiveOrderIdNumber
-  ) {
-    theMostExpensiveOrderIdNumber = orders[i].productPrice * productQuantity;
-    theMostExpensiveTotalPrice = orders[i];
+  const order = orders[i];
+  const totalPrice = order.productPrice * order.productQuantity;
+
+  if (totalPrice > highestTotalPrice) {
+    highestTotalPrice = totalPrice;
+    orderIdWithHighestTotalPrice = order.id;
   }
 }
-console.log(theMostExpensiveTotalPrice);
+
+console.log(
+  `The order with the highest total price is order ID ${orderIdWithHighestTotalPrice} with a total price of ${highestTotalPrice}.`
+);
